@@ -1,7 +1,7 @@
 {
   "name": "md-typographer",
-  "version": "0.0.0",
-  "description": "Make your markdown better",
+  "version": "0.1.0",
+  "description": "Markdown transformers to make your typography better.",
   "main": "index.es5.js",
   "scripts": {
     "watch": "npm run transpile -- --watch",
@@ -27,6 +27,7 @@
     "typography",
     "typographic",
     "text",
+    "textr",
     "transformer",
     "typographer"
   ],
