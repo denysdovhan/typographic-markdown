@@ -57,7 +57,7 @@ Your any markdown string.
 
 Type: `Object`
 
-Options will be passed into plugin.
+Options will be passed into [mdast-typographer][mdast-typographer].
 
 ##### options.modules
 
@@ -66,7 +66,7 @@ Default: `{}`
 
 `modules` object contains pairs of transformers and boolean value. If value equals `false`, then this transformer won’t be executed. If value equals `true`, that transformer will be used as usual.
 
-As default, mdast-typographer uses these transformers:
+As default, **md-typographer** uses these transformers:
 
 -   **`apostrophes` — [typographic-apostrophes][apostrophes]** — typographic apostrophes in contractions and for possessive case.
 -   **`quotes` — [typographic-quotes][quotes]** — typographic quotes for your text with respect to locale.
@@ -188,6 +188,8 @@ grunt.registerTask('typo', ['textr']);
 ## License
 
 MIT © [Denys Dovhan](http://denysdovhan.com)
+
+[iso]: http://www.wikiwand.com/en/List_of_ISO_639-1_codes
 
 [apostrophes]: https://github.com/iamstarkov/typographic-apostrophes
 [quotes]: https://github.com/iamstarkov/typographic-quotes
