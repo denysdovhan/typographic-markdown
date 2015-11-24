@@ -14,7 +14,6 @@ This plugin transforms only _text_ nodes from your markdown using [`typographic-
 [mdast]: http://mdast.js.org/
 [textr]: https://github.com/shuvalov-anton/textr
 
-
 ## Install
 
 Install **md-typographer** using [npm][npm]:
@@ -49,7 +48,7 @@ Transforms only _text_ nodes and fixes your typography. Returns corrected markdo
 
 #### input
 
-*Required*  
+_Required_  
 Type: `String`
 
 Your any markdown string.
@@ -65,38 +64,36 @@ Options will be passed into plugin.
 Type: `Object`
 Default: `{}`
 
-`modules` object contains pairs of transformers and boolean value. If value equals `false`, then this transformer won't be executed. If value equals `true`, that transformer will be used as usual.
+`modules` object contains pairs of transformers and boolean value. If value equals `false`, then this transformer won’t be executed. If value equals `true`, that transformer will be used as usual.
 
 As default, mdast-typographer uses these transformers:
 
-* **`apostrophes` — [typographic-apostrophes][apostrophes]** — typographic apostrophes in contractions and for possessive case.
-* **`quotes` — [typographic-quotes][quotes]** —  typographic quotes for your text with respect to locale.
-* **`plurals` — [typographic-apostrophes-for-possessive-plurals][plurals]** — typographic apostrophes for progressive plurals.
-* **`arrows` — [typographic-arrows][arrows]** — typographic real arrows.
-* **`copyright` — [typographic-copyright][copyright]** — typographic copyright.
-* **`currency` — [typographic-currency][currency]** — replaces name of currency
-* **`ellipses` — [typographic-ellipses][ellipses]** — avoids using periods and
-* **`em` — [typographic-em-dashes][em]** — replaces `--` to em dash.
-* **`en` — [typographic-en-dashes][en]** — safely replacing hyphens in a range of values with en dashes only.
-* **`math` — [typographic-math-symbols][math]** — replaces alphabetic math symbols to real symbols.
-* **`registered` — [typographic-registered-trademark][registered]** — replaces alphabetic registered trademark to real symbol.
-* **`spaces` — [typographic-single-spaces][spaces]** — replace many spaces to one space.
-* **`trademark` — [typographic-trademark][trademark]** — replaces alphabetic trademark to real symbol.
+-   **`apostrophes` — [typographic-apostrophes][apostrophes]** — typographic apostrophes in contractions and for possessive case.
+-   **`quotes` — [typographic-quotes][quotes]** — typographic quotes for your text with respect to locale.
+-   **`plurals` — [typographic-apostrophes-for-possessive-plurals][plurals]** — typographic apostrophes for progressive plurals.
+-   **`arrows` — [typographic-arrows][arrows]** — typographic real arrows.
+-   **`copyright` — [typographic-copyright][copyright]** — typographic copyright.
+-   **`currency` — [typographic-currency][currency]** — replaces name of currency
+-   **`ellipses` — [typographic-ellipses][ellipses]** — avoids using periods and
+-   **`em` — [typographic-em-dashes][em]** — replaces `--` to em dash.
+-   **`en` — [typographic-en-dashes][en]** — safely replacing hyphens in a range of values with en dashes only.
+-   **`math` — [typographic-math-symbols][math]** — replaces alphabetic math symbols to real symbols.
+-   **`registered` — [typographic-registered-trademark][registered]** — replaces alphabetic registered trademark to real symbol.
+-   **`spaces` — [typographic-single-spaces][spaces]** — replace many spaces to one space.
+-   **`trademark` — [typographic-trademark][trademark]** — replaces alphabetic trademark to real symbol.
 
-If you don't wanna transform anything, you can disable all modules like so:
+If you don’t wanna transform anything, you can disable all modules like so:
 
-```
-{
-  modules: false
-}
-```
+    {
+      modules: false
+    }
 
 ##### options.locale
 
 Type: `String`  
 Default: `en-us`
 
-[ISO 639][iso] locale code. It's important for right correction, basically for proper primary and secondary quotes.
+[ISO 639][iso] locale code. It’s important for right correction, basically for proper primary and secondary quotes.
 
 ##### options.before
 
@@ -111,17 +108,18 @@ Type: `Array`
 Default: `[]`
 
 Array of custom transformers that will be executed _after_ another.
+
 [mdast-typographer]: https://github.com/denysdovhan/mdast-typographer
 
 ## Examples
 
 ### [CLI][textr-cli]
 
-Easy to use **md-typographer** from your CLI using [textr-cli][textr-cli].
+Easy to use **md-typographer** from your CLI using [textr-cli][textr-cli]:
 
 ```bash
 # install textr-cli globaly, also don't forget about md-typographer
-$ npm install -g textr-cli **md-typographer**
+$ npm install -g textr-cli md-typographer
 
 # … then run `textr` like so
 $ textr foo.md -t md-typographer -l en-us -o bar.md
@@ -139,7 +137,6 @@ const tf = textr({ locale: 'en-us' }).use(typographer);
 
 tf(`Hello, "world"...`); // Hello, “world”…
 ```
-
 
 ### [gulp][gulp]
 
