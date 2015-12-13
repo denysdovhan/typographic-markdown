@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "mdast": "^2.2.2",
-    "mdast-textr": "^1.0.0"
+    "mdast-textr": "^1.0.0",
+    "typographic-base": "^1.0.3"
   }
 }

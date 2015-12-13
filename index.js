@@ -1,6 +1,8 @@
 import mdast from 'mdast';
-import typo from 'mdast-typographer';
+import mdtextr from 'mdast-textr';
+import base from 'typographic-base';
 
-export default function typographer(text = '', options = {}) {
-  return mdast.use(typo, options).process(text).trim();
+export default function typographicMarkdown(text = '', options = {}) {
+  options.plugins = options.plugins || [base];
+  return mdast.use(mdtextr, options).process(text).trim();
 };
