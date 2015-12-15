@@ -49,7 +49,7 @@
     "mocha": "*",
     "npm-run-all": "*",
     "rimraf": "*",
-    "typographic-ellipses": "^1.0.11"
+    "typographic-quotes": "^2.0.1"
   },
   "dependencies": {
     "mdast": "^2.2.2",
