@@ -1,21 +1,10 @@
 import { equal } from 'assert';
-import typographer from './index';
-
-it('should process', () =>
-  equal(typographer('**"quotes"**'), '**“quotes”**')
-);
-
-it('should not touch code blocks', () =>
-  equal(
-    typographer('em-dash -- is not a decrement `i--`...'),
-    'em-dash — is not a decrement `i--`…'
-  )
-);
+import t from './index';
 
 it('should pass options', () =>
-  equal(typographer('_"quotes"_', { locale: 'uk' }), '_«quotes»_')
-)
+  equal(t('_"quotes"_', { options: { locale: 'uk' }}), '_«quotes»_')
+);
 
-it('should typographer invalid input', () =>
-  equal(typographer(), '')
+it('should pass plugins', () =>
+  equal(t('**ellipses**...', { plugins: ['typographic-ellipses'] }), '**ellipses**…')
 );

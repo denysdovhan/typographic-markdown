@@ -48,7 +48,8 @@
     "isparta": "*",
     "mocha": "*",
     "npm-run-all": "*",
-    "rimraf": "*"
+    "rimraf": "*",
+    "typographic-ellipses": "^1.0.11"
   },
   "dependencies": {
     "mdast": "^2.2.2",
