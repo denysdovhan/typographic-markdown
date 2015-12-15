@@ -1,218 +1,109 @@
-# md-typographer
+# typographic-markdown
 
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 
-> Markdown transformers to [make your typography better][typewriter-habits].
+> Ready to use [Textr][textr] plugin for markdown to [make your typography better][typewriter-habits].
 
-This plugin transforms only _text_ nodes from your markdown using [`typographic-*`][tfs] transformers and [mdast][mdast]. All of those transformers are being composed using [Textr][textr]. By the way, you can add your own transformers or disable default ones.
+Transform your markdown using [`typographic-base`][typographic-base] or other [`typographic-*`][tfs] transformers, **skipping code**.
 
 [typewriter-habits]: http://practicaltypography.com/typewriter-habits.html
-[tfs]: https://github.com/denysdovhan/mdast-typographer/blob/master/package.json#L53-L65
-[mdast]: http://mdast.js.org/
-[textr]: https://github.com/shuvalov-anton/textr
+[typographic-base]: https://github.com/iamstarkov/typographic-base
+[tfs]: https://www.npmjs.com/browse/keyword/typographic
 
 ## Install
 
-Install **md-typographer** using [npm][npm]:
-
-    npm install --save mdast-typographer
-
-[npm]: https://docs.npmjs.com/cli/install
+    npm install --save typographic-markdown
 
 ## Usage
 
 You can use it as a [textr-compatible][textr-compatible] text transformer:
 
 ```js
-import typographer from 'md-typographer';
+import t from 'typographic-markdown';
 
-typographer(`Hello, "world"...`); // Hello, “world”…
+t(`Hello, "world"...`); // Hello, “world”…
 // … or with Ukrainian local (for example)
-typographer(`Hello, "world!"`, { locale: 'uk' }); // Hello, «world»…
+t(`Hello, "world!"`, { locale: 'uk' }); // Hello, «world»…
 ```
 
-Take a look how you to use it from [CLI](#cli), [textr](#textr), [gulp](#gulp) and [grunt](#grunt).
+Take a look how you to use it from [CLI](#cli).
 
 [textr-compatible]: https://github.com/shuvalov-anton/textr#plugins-api
 
 ## API
 
-This plugin has similar API as [mdast-typographer][mdast-typographer].
+This plugin has similar API as [mdast-textr][mdast-textr].
 
-### typographer(input[, options])
+### typographicMarkdown(text[, options, plugins])
 
-Transforms only _text_ nodes and fixes your typography. Returns corrected markdown.
+#### text
 
-#### input
+Type: `String`  
+Default: `''`
 
-_Required_  
-Type: `String`
-
-Your any markdown string.
+Text that will be transformed.
 
 #### options
 
-Type: `Object`
+Type: `Object`  
+Default: `{ locale: 'en-us' }`
 
-Options will be passed into [mdast-typographer][mdast-typographer].
+It’s Textr’s options. Check out [Textr usage section][textr-usage].
 
-##### options.modules
+[textr-usage]: https://github.com/shuvalov-anton/textr#usage
 
-Type: `Object`
-Default: `{}`
-
-`modules` object contains pairs of transformers and boolean value. If value equals `false`, then this transformer won’t be executed. If value equals `true`, that transformer will be used as usual.
-
-As default, **md-typographer** uses these transformers:
-
--   **`apostrophes` — [typographic-apostrophes][apostrophes]** — typographic apostrophes in contractions and for possessive case.
--   **`quotes` — [typographic-quotes][quotes]** — typographic quotes for your text with respect to locale.
--   **`plurals` — [typographic-apostrophes-for-possessive-plurals][plurals]** — typographic apostrophes for progressive plurals.
--   **`arrows` — [typographic-arrows][arrows]** — typographic real arrows.
--   **`copyright` — [typographic-copyright][copyright]** — typographic copyright.
--   **`currency` — [typographic-currency][currency]** — replaces name of currency
--   **`ellipses` — [typographic-ellipses][ellipses]** — avoids using periods and
--   **`em` — [typographic-em-dashes][em]** — replaces `--` to em dash.
--   **`en` — [typographic-en-dashes][en]** — safely replacing hyphens in a range of values with en dashes only.
--   **`math` — [typographic-math-symbols][math]** — replaces alphabetic math symbols to real symbols.
--   **`registered` — [typographic-registered-trademark][registered]** — replaces alphabetic registered trademark to real symbol.
--   **`spaces` — [typographic-single-spaces][spaces]** — replace many spaces to one space.
--   **`trademark` — [typographic-trademark][trademark]** — replaces alphabetic trademark to real symbol.
-
-If you don’t wanna transform anything, you can disable all modules like so:
-
-    {
-      modules: false
-    }
-
-##### options.locale
-
-Type: `String`  
-Default: `en-us`
-
-[ISO 639][iso] locale code. It’s important for right correction, basically for proper primary and secondary quotes.
-
-##### options.before
+##### plugins
 
 Type: `Array`  
-Default: `[]`
+Default: `['typographic-base']`
 
-Array of custom transformers that will be executed _before_ another.
+Array of [Textr][textr] plugins. They are available on npm, labelled with [textr][textr-plugins] keyword. Also you can easily create new one. Don’t be scared.
 
-##### options.after
+As default it uses [`typographic-base`][typographic-base] bundle that already contains plugins you might want to use.
 
-Type: `Array`  
-Default: `[]`
+[textr-plugins]: https://www.npmjs.com/browse/keyword/textr
+[mdast-textr]: https://github.com/denysdovhan/mdast-textr
 
-Array of custom transformers that will be executed _after_ another.
+## CLI
 
-[mdast-typographer]: https://github.com/denysdovhan/mdast-typographer
-
-## Examples
-
-### [CLI][textr-cli]
-
-Easy to use **md-typographer** from your CLI using [textr-cli][textr-cli]:
+Easy to use **typographic-markdown** from your terminal using [textr-cli][textr-cli]:
 
 ```bash
 # install textr-cli globaly, also don't forget about md-typographer
-$ npm install -g textr-cli md-typographer
+$ npm install -g textr-cli typographic-markdown
 
 # … then run `textr` like so
-$ textr foo.md -t md-typographer -l en-us -o bar.md
+$ textr foo.md -t typographic-markdown -l uk -o bar.md
 ```
 
-### [textr][textr]
+## Related
 
-**md-typographer** is fully compatible with [Textr][textr], so just use it as regular plugin:
-
-```js
-import textr from 'textr';
-import typographer from 'md-typographer';
-
-const tf = textr({ locale: 'en-us' }).use(typographer);
-
-tf(`Hello, "world"...`); // Hello, “world”…
-```
-
-### [gulp][gulp]
-
-You can easily use **md-typographer** in your `gulpfile.js` with [gulp-textr][gulp-textr] plugin like so:
-
-```js
-import gulp from 'gulp';
-import textr from 'gulp-textr';
-import typographer from 'md-typographer';
-
-gulp.task('typo', () =>
-  gulp.src('foo.md') // Hello, “world”…
-    .pipe(textr({locale: 'en-us'}).use(typographer))
-    .pipe(gulp.dest('dist')); // Hello, “world”…
-);
-```
-
-### [grunt][grunt]
-
-If you are using **Grunt**, check out [grunt-textr][grunt-textr] plugin and use it like this:
-
-```js
-require('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks
-
-grunt.initConfig({
-    textr: {
-      options: {
-        locale: 'en-us',
-        plugins: [
-          require('md-typographer')
-        ]
-      },
-      files: {
-        'dist/foo.md': 'src/bar.md'
-      }
-    }
-});
-
-grunt.registerTask('typo', ['textr']);
-```
-
-[textr-cli]: https://github.com/denysdovhan/textr-cli
-[textr]: https://github.com/shuvalov-anton/textr
-[gulp]: gulpjs.com
-[gulp-textr]: https://github.com/andrepolischuk/gulp-textr
-[grunt]: http://gruntjs.com/
-[grunt-textr]: https://github.com/denysdovhan/grunt-textr
+* [textr]( https://github.com/shuvalov-anton/textr)
+* [textr-cli](https://github.com/denysdovhan/textr-cli)
+* [gulp-textr]( https://github.com/andrepolischuk/gulp-textr)
+* [grunt-textr]( https://github.com/denysdovhan/grunt-textr)
+* [mdast-textr][mdast-textr]
 
 ## License
 
 MIT © [Denys Dovhan](http://denysdovhan.com)
 
+[textr]: https://github.com/shuvalov-anton/textr
+[textr-cli]: https://github.com/denysdovhan/textr-cli
+
 [iso]: http://www.wikiwand.com/en/List_of_ISO_639-1_codes
 
-[apostrophes]: https://github.com/iamstarkov/typographic-apostrophes
-[quotes]: https://github.com/iamstarkov/typographic-quotes
-[plurals]: https://github.com/iamstarkov/typographic-apostrophes-for-possessive-plurals
-[arrows]: https://github.com/andrepolischuk/typographic-arrows
-[copyright]: https://github.com/iamstarkov/typographic-copyright
-[currency]: https://github.com/talgautb/typographic-currency
-[ellipses]: https://github.com/iamstarkov/typographic-ellipses
-[em]: https://github.com/iamstarkov/typographic-em-dashes
-[en]: https://github.com/iamstarkov/typographic-en-dashes
-[math]: https://github.com/iamstarkov/typographic-math-symbols
-[registered]: https://github.com/iamstarkov/typographic-registered-trademark
-[spaces]: https://github.com/iamstarkov/typographic-single-spaces
-[trademark]: https://www.npmjs.com/package/typographic-trademark
+[npm-url]: https://npmjs.org/package/typographic-markdown
+[npm-image]: https://img.shields.io/npm/v/typographic-markdown.svg?style=flat-square
 
-[npm-url]: https://npmjs.org/package/md-typographer
-[npm-image]: https://img.shields.io/npm/v/md-typographer.svg?style=flat-square
+[travis-url]: https://travis-ci.org/denysdovhan/typographic-markdown
+[travis-image]: https://img.shields.io/travis/denysdovhan/typographic-markdown.svg?style=flat-square
 
-[travis-url]: https://travis-ci.org/denysdovhan/md-typographer
-[travis-image]: https://img.shields.io/travis/denysdovhan/md-typographer.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/denysdovhan/typographic-markdown
+[coveralls-image]: https://img.shields.io/coveralls/denysdovhan/typographic-markdown.svg?style=flat-square
 
-[coveralls-url]: https://coveralls.io/r/denysdovhan/md-typographer
-[coveralls-image]: https://img.shields.io/coveralls/denysdovhan/md-typographer.svg?style=flat-square
-
-[depstat-url]: https://david-dm.org/denysdovhan/md-typographer
-[depstat-image]: https://david-dm.org/denysdovhan/md-typographer.svg?style=flat-square
+[depstat-url]: https://david-dm.org/denysdovhan/typographic-markdown
+[depstat-image]: https://david-dm.org/denysdovhan/typographic-markdown.svg?style=flat-square
