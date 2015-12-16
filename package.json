@@ -48,10 +48,12 @@
     "isparta": "*",
     "mocha": "*",
     "npm-run-all": "*",
-    "rimraf": "*"
+    "rimraf": "*",
+    "typographic-quotes": "^2.0.1"
   },
   "dependencies": {
     "mdast": "^2.2.2",
-    "mdast-typographer": "^0.2.0"
+    "mdast-textr": "^1.0.0",
+    "typographic-base": "^1.0.3"
   }
 }
