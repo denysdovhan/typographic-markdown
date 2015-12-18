@@ -42,7 +42,7 @@ This plugin has similar API as [mdast-textr][mdast-textr].
 **Signatures:**
 
 * `typographicMarkdown(text[, options, plugins])`
-* `typographicMarkdown(text[, options|plugins-api])`
+* `typographicMarkdown(text[, options|plugins])`
 
 #### text
 
