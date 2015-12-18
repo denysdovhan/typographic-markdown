@@ -1,6 +1,6 @@
 {
   "name": "typographic-markdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Markdown transformers to make your typography better.",
   "main": "index.es5.js",
   "scripts": {
@@ -48,8 +48,7 @@
     "isparta": "*",
     "mocha": "*",
     "npm-run-all": "*",
-    "rimraf": "*",
-    "typographic-quotes": "^2.0.1"
+    "rimraf": "*"
   },
   "dependencies": {
     "mdast": "^2.2.2",
