@@ -7,5 +7,8 @@ export default function typographicMarkdown(
   options = { locale: 'en-us' },
   plugins = [ base ]
 ) {
-  return mdast.use(mdtextr, { options, plugins }).process(text).trim();
+  return mdast.use(mdtextr, {
+    options: Array.isArray(options) ? { locale: 'en-us' } : options,
+    plugins: Array.isArray(options) ? options : plugins
+  }).process(text).trim();
 };

@@ -6,5 +6,5 @@ it('should pass options', () =>
 );
 
 it('should pass plugins', () =>
-  equal(t('**"quotes"**', { locale: 'en-us' }, ['typographic-quotes']), '**“quotes”**')
+  equal(t('**"quotes"**', ['typographic-quotes']), '**“quotes”**')
 );
