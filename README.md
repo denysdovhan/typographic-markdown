@@ -39,6 +39,11 @@ This plugin has similar API as [mdast-textr][mdast-textr].
 
 ### typographicMarkdown(text[, options, plugins])
 
+**Signatures:**
+
+* `typographicMarkdown(text[, options, plugins])`
+* `typographicMarkdown(text[, options|plugins-api])`
+
 #### text
 
 Type: `String`  
@@ -55,7 +60,7 @@ It’s Textr’s options. Check out [Textr usage section][textr-usage].
 
 [textr-usage]: https://github.com/shuvalov-anton/textr#usage
 
-##### plugins
+#### plugins
 
 Type: `Array`  
 Default: `['typographic-base']`
@@ -76,7 +81,7 @@ Easy to use **typographic-markdown** from your terminal using [textr-cli][textr-
 $ npm install -g textr-cli typographic-markdown
 
 # … then run `textr` like so
-$ textr foo.md -t typographic-markdown -l uk -o bar.md
+$ textr readme.md -t typographic-markdown -l uk -o fixed.md
 ```
 
 ## Related
