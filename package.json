@@ -1,6 +1,6 @@
 {
-  "name": "md-typographer",
-  "version": "0.1.1",
+  "name": "typographic-markdown",
+  "version": "1.0.0",
   "description": "Markdown transformers to make your typography better.",
   "main": "index.es5.js",
   "scripts": {
