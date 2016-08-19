@@ -54,8 +54,8 @@
     "typographic-quotes": "^2.0.1"
   },
   "dependencies": {
-    "mdast": "^3.0.0",
-    "mdast-textr": "^2.0.3",
+    "remark": "^5.1.0",
+    "remark-textr": "^2.0.2",
     "typographic-base": "^1.0.3"
   }
 }

@@ -1,5 +1,5 @@
-import mdast from 'mdast';
-import mdtextr from 'mdast-textr';
+import remark from 'remark';
+import remarkTextr from 'remark-textr';
 import base from 'typographic-base';
 
 export default function typographicMarkdown(
@@ -7,8 +7,8 @@ export default function typographicMarkdown(
   options = { locale: 'en-us' },
   plugins = [ base ]
 ) {
-  return mdast.use(mdtextr, {
+  return remark().use(remarkTextr, {
     options: Array.isArray(options) ? { locale: 'en-us' } : options,
     plugins: Array.isArray(options) ? options : plugins
-  }).process(text).trim();
+  }).process(text).toString().trim();
 };
