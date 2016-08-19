@@ -14,6 +14,7 @@
     "prepublish": "npm run transpile",
     "clean": "rimraf index.es5.js",
     "push": "git push --follow-tags",
+    "lint": "eslint .",
     "postpublish": "npm-run-all clean push"
   },
   "repository": {
@@ -41,10 +42,11 @@
     "assert": "*",
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",
-    "babel-eslint": "^4.1.5",
-    "babel-plugin-add-module-exports": "^0.1.1",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.1.18",
     "coveralls": "*",
+    "eslint": "^3.3.1",
     "isparta": "*",
     "mocha": "*",
     "npm-run-all": "*",
@@ -52,8 +54,8 @@
     "typographic-quotes": "^2.0.1"
   },
   "dependencies": {
-    "mdast": "^2.2.2",
-    "mdast-textr": "^1.0.0",
+    "remark": "^5.1.0",
+    "remark-textr": "^2.0.2",
     "typographic-base": "^1.0.3"
   }
 }
