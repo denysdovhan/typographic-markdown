@@ -35,7 +35,7 @@ Take a look how you to use it from [CLI](#cli).
 
 ## API
 
-This plugin has similar API as [mdast-textr][mdast-textr].
+This plugin has similar API as [remark-textr][remark-textr].
 
 ### typographicMarkdown(text[, options, plugins])
 
@@ -70,7 +70,7 @@ Array of [Textr][textr] plugins. They are available on npm, labelled with [textr
 As default it uses [`typographic-base`][typographic-base] bundle that already contains plugins you might want to use.
 
 [textr-plugins]: https://www.npmjs.com/browse/keyword/textr
-[mdast-textr]: https://github.com/denysdovhan/mdast-textr
+[remark-textr]: https://github.com/denysdovhan/remark-textr
 
 ## CLI
 
@@ -90,7 +90,7 @@ $ textr readme.md -t typographic-markdown -l uk -o fixed.md
 * [textr-cli](https://github.com/denysdovhan/textr-cli)
 * [gulp-textr]( https://github.com/andrepolischuk/gulp-textr)
 * [grunt-textr]( https://github.com/denysdovhan/grunt-textr)
-* [mdast-textr][mdast-textr]
+* [remark-textr][remark-textr]
 
 ## License
 
