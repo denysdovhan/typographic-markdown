@@ -54,7 +54,7 @@
     "typographic-quotes": "^2.0.1"
   },
   "dependencies": {
-    "remark": "^5.1.0",
+    "remark": "^6.2.0",
     "remark-textr": "^2.0.2",
     "typographic-base": "^1.0.3"
   }
