@@ -10,5 +10,5 @@ export default function typographicMarkdown(
   return remark().use(remarkTextr, {
     options: Array.isArray(options) ? { locale: 'en-us' } : options,
     plugins: Array.isArray(options) ? options : plugins
-  }).process(text).toString().trim();
+  }).processSync(text).toString().trim();
 };
