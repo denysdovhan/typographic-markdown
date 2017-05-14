@@ -48,7 +48,7 @@
     "coveralls": "*",
     "eslint": "^3.3.1",
     "isparta": "*",
-    "mocha": "*",
+    "mocha": "3.4.0",
     "npm-run-all": "*",
     "rimraf": "*",
     "typographic-quotes": "^2.0.1"
